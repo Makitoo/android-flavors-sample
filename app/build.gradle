@@ -1,13 +1,22 @@
 apply plugin: 'com.android.application'
+apply plugin: 'makitoo'
+
+makitoo {
+    modules = [
+            'com.makitoo.handled.HandledModule',
+            'com.makitoo.hotcatches.HotFixesModule',
+            'com.makitoo.npe.NpeModule'
+    ]
+}
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "com.github.flavors.sample"
         minSdkVersion 10
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -16,24 +25,26 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
-        homolog {
-
-        }
     }
 
     productFlavors {
-        linux {
-            applicationId "com.github.flavors.sample.linux"
-        }
-
         windows {
             applicationId "com.github.flavors.sample.windows"
+            versionCode 2
+            versionName "2.0"
         }
+
+        linux {
+            applicationId "com.github.flavors.sample.linux"
+            versionCode 3
+            versionName "3.0"
+        }
+
     }
 }
 
 dependencies {
+    compile 'com.makitoo:makitoo-library-android:0.0.5'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.2.1'
 }

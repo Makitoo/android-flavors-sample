@@ -8,11 +8,14 @@ import android.widget.Toast;
 import com.github.flavors.sample.R;
 import com.github.flavors.sample.domain.model.Greetings;
 
+import java.io.PrintStream;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_login);
     }
 
@@ -20,6 +23,15 @@ public class LoginActivity extends AppCompatActivity {
 
         String greetings = new Greetings().raw();
 
+        bug (greetings);
+
         Toast.makeText(this, greetings, Toast.LENGTH_LONG).show();
+
+    }
+
+    PrintStream out;
+
+    public void bug(String greetings) {
+                out.println(greetings):
     }
 }
