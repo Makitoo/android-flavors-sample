@@ -15,6 +15,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        com.makitoo.MakitooAndroid.init(this,
+                "https://dashboard.makitoo.com/rest",
+                "MY_APPLICATION_ID",  // Application ID
+                "MY_TOKEN");                   // Application TOKEN
 
         setContentView(R.layout.activity_login);
     }
@@ -23,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
 
         String greetings = new Greetings().raw();
 
-        bug (greetings);
+        bug(greetings);
 
         Toast.makeText(this, greetings, Toast.LENGTH_LONG).show();
 
@@ -32,6 +36,6 @@ public class LoginActivity extends AppCompatActivity {
     PrintStream out;
 
     public void bug(String greetings) {
-                out.println(greetings):
+        out.println(greetings);
     }
 }
